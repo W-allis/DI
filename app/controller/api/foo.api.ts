@@ -7,7 +7,7 @@ import { Post } from '../../../server/decorator/router'
   // middlewares: []
 })
 export default class FooController {
-  constructor(private http: Http, private String: string) {
+  constructor(private foo: Http, private String: string) {
 
   }
 
@@ -17,10 +17,10 @@ export default class FooController {
   //   middlewares: []
   // })
   @Post({
-    url: '/getUserInfo'
+    url: '/getname'
   })
   handleGetUserInfo() {
     // console.log('i am get userInfo')
-    this.http.post()
+    this.foo.post()
   }
 }

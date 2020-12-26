@@ -26,7 +26,7 @@ function matchRouter(type: string, url: string, routes: Routes) {
 
         const _method = Reflect.getMetadata('method', fn)
         const _url = Reflect.getMetadata('url', fn)
-        console.log(_method, type, routes[i].path + _url, url)
+        // console.log(_method, type, routes[i].path + _url, url)
         if (_method === type && routes[i].path + _url === url) {
           handler = function() {
             (<any>controllerInstance)[method]()

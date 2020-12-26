@@ -20,7 +20,7 @@ export default function Router(config: RouterConfig): ClassDecorator {
 export function Post(pathConfig: PathConfig): MethodDecorator {
   const _handler = (target: Constructor, key: symbol | string, descriptor: PropertyDescriptorMap) => {
     // console.log(target)
-    Reflect.defineMetadata('method', 'POST',descriptor.value)
+    Reflect.defineMetadata('method', 'POST', descriptor.value)
     Reflect.defineMetadata('url', pathConfig.url, descriptor.value)
   }
 
