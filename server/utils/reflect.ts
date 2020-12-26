@@ -5,3 +5,6 @@ export function getParamsType(target: Constructor) {
   return Reflect.getMetadata('design:paramtypes', target)
 }
 
+export function defineMetadata(key: symbol | string, value: any, target: any): void {
+  Reflect.defineMetadata(key, value, target)
+}
