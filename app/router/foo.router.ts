@@ -4,7 +4,7 @@ import FooController from '../controller/api/foo.api'
 
 const routes: Routes = [
   // { path: '', controller: FooController, redirectTo: '/login', meta: {} },
-  { path: '/user', controller: FooController, cache: true }
+  { path: '/api', controller: FooController, cache: true }
 ]
 
 @Router({

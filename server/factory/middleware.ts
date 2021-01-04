@@ -1,9 +1,12 @@
+import { Constructor } from '../types/base'
 import { MiddlewareFn } from '../types/middleware'
 
 class MiddlewareFactory {
-  public handler: MiddlewareFn
+  static middlewares: Set<Constructor | { [key: string]: Constructor }> = new Set()
 
-  constructor(handler: MiddlewareFn) {
-    this.handler = handler
+  constructor() {}
+
+  static addMiddleware(middleware: Constructor): void {
+    MiddlewareFactory.middlewares.add(middleware)
   }
 }

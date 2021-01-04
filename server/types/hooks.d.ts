@@ -1,4 +1,4 @@
 export abstract class Hooks {
-  abstract beforeRouterEach(): void
-  abstract afterRouterEach(): void
+  abstract beforeRouter(ctx): void
+  abstract afterRouter(ctx): void
 }

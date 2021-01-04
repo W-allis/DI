@@ -17,7 +17,6 @@ function matchRouter(type: string, url: string, routes: Routes) {
 
     if (url.match(reg)) {
       const controllerInstance = create(routes[i].controller)
-
       const methodsNames = Object.getOwnPropertyNames(Object.getPrototypeOf(controllerInstance))
         .filter((item: string | symbol) => item !== 'constructor' && (<any>controllerInstance)[item] instanceof Function) 
       methodsNames.forEach(method => {

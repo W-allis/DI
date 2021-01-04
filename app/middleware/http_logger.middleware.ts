@@ -1,17 +1,16 @@
 import Middleware from '../../server/decorator/middleware'
 import { Hooks } from '../../server/types/hooks'
-import Http from '../service/http'
 
-@Middleware()
+@Middleware({
+  name: 'httpLogger'
+})
 class HttpLoggerMiddleware implements Hooks {
-  constructor(public http: Http) {}
+  constructor() {}
 
-  beforeRouterEach() {
-    this.http.post()
+  beforeRouter(ctx: any) {
   }
 
-  afterRouterEach() {
-    this.http.post()
+  afterRouter(ctx: any) {
   }
 }
 

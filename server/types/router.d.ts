@@ -1,3 +1,5 @@
+import { Constructor, Middlewares } from './base'
+
 export interface Route {
   path: string,
   controller: Constructor,
@@ -18,9 +20,8 @@ export interface RouterConfig {
 }
 
 export interface PathConfig {
-  beforeRouteEnter?: () => any
-  afterRouteEnter?: () => any
   url: string,
+  middlewares?: Middlewares,
   headers?: {
     contentType?: string
   }
