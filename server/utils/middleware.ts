@@ -5,3 +5,6 @@ export function makeMiddleware(handler: MiddlewareFn): MiddlewareFactoryConstruc
   // return new MiddlewareFactory(handler)
   return {} as MiddlewareFactoryConstructor
 }
+
+// export function middleware
+

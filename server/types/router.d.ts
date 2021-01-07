@@ -2,12 +2,23 @@ import { Constructor, Middlewares } from './base'
 
 export interface Route {
   path: string,
-  controller: Constructor,
+  children?: Array<Route>,
+  redirectTo?: string,
+  meta?: Object,
+  cache?: Boolean,
+  controller?: Constructor,
+  module?: Constructor
+}
+
+export interface _Route {
+  path: string,
   children?: Array<Route>,
   redirectTo?: string,
   meta?: Object,
   cache?: Boolean
 }
+
+export type _Routes = Array<_Route>
 
 export type Routes = Array<Route>
 

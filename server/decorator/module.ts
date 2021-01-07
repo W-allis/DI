@@ -1,23 +1,28 @@
 import { Constructor } from '../types/base.d'
+import { Route, Routes } from '../types/router.d'
+import { create } from '../utils/create'
 import { makeDecorator } from '../utils/decorator'
+import { defineMetadata, getMetadata } from '../utils/reflect'
 
 interface ModuleConfig {
-  routers?: any[]
   modules?: any[]
+  routers?: Constructor[]
   middlewares?: any[]
-  providers?: any[],
+  providers?: [],
+  shedulers?: any[],
   dependencies?: any[],
   controllers?: any[]
 }
 
-function setController() {
-
+function generatorRoute(routers: Array<Constructor>) {
+  return routers.map((router: Constructor): Constructor => {
+    return create(router)
+  })
 }
 
 export function Module(config: ModuleConfig): ClassDecorator {
   const _handler = (target: Constructor) => {
-    Reflect.defineMetadata('controllers', config.controllers, target)
-    Reflect.defineMetadata('routers', config.routers, target)
+    defineMetadata('routerModule', config.routers, target)  
   }
 
   return makeDecorator(_handler) as ClassDecorator

@@ -8,3 +8,7 @@ export function getParamsType(target: Constructor) {
 export function defineMetadata(key: symbol | string, value: any, target: any): void {
   Reflect.defineMetadata(key, value, target)
 }
+
+export function getMetadata(key: symbol | string, target: any): any {
+  return Reflect.getMetadata(key, target)
+}

@@ -1,12 +1,11 @@
-import Http from '../../service/http.service'
-import Controller from '../../../server/decorator/controller'
-import { Post } from '../../../server/decorator/router'
-import Wx from '../../service/wx.service'
-import HttpLoggerMiddlware from '../../middleware/http_logger.middleware'
+import Http from '../../../service/http.service'
+import Controller from '../../../../server/decorator/controller'
+import { Post } from '../../../../server/decorator/router'
+import Wx from '../../../service/wx.service'
 
 @Controller({
   // prefix: '/api'
-  middlewares: [HttpLoggerMiddlware, 'httpLogger']
+  middlewares: ['httpLogger']
 })
 export default class FooController {
   constructor(private foo: Http, private wx: Wx) {
